@@ -1,125 +1,55 @@
-// ===============================
-// SMOOTH SCROLLING FOR NAV LINKS
-// ===============================
-
-document.querySelectorAll(".nav-links li").forEach((link) => {
-  link.addEventListener("click", function () {
-    let section = this.textContent.toLowerCase();
-
-    let target = document.querySelector("." + section);
-
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  });
-});
-
-// ===============================
-// HERO BUTTON - VIEW PROJECTS
-// ===============================
-
-let projectButton = document.querySelector(".hero-buttons button");
-
-if (projectButton) {
-  projectButton.addEventListener("click", function () {
-    let projects = document.querySelector(".projects");
-
-    projects.scrollIntoView({
-      behavior: "smooth",
-    });
-  });
+// ===== SMOOTH SCROLL FOR BUTTONS =====
+function scrollTo(selector) {
+  document.querySelector(selector).scrollIntoView({ behavior: "smooth" });
 }
 
-// ===============================
-// CONTACT FORM MESSAGE
-// ===============================
-
-let form = document.querySelector(".contact-form");
-
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    alert("Message sent successfully!");
-
-    form.reset();
-  });
-}
-
-// ===============================
-// SIMPLE SCROLL ANIMATION
-// ===============================
-
-window.addEventListener("scroll", function () {
-  let cards = document.querySelectorAll(".project-card");
-
-  cards.forEach((card) => {
-    let position = card.getBoundingClientRect().top;
-    let screenHeight = window.innerHeight;
-
-    if (position < screenHeight - 100) {
-      card.style.opacity = "1";
-      card.style.transform = "translateY(0)";
-    }
-  });
-});
-
-// CONTACT ME BUTTON SCROLL
-
-let contactBtn = document.querySelector(".hero-buttons button:last-child");
-
-if (contactBtn) {
-  contactBtn.addEventListener("click", function () {
-    let contactSection = document.querySelector(".contact");
-
-    contactSection.scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-}
-
+// ===== TYPING EFFECT =====
 const words = [
-  "Software Developer",
-  "AI Enthusiast",
-  "Machine Learning Learner",
-  "Web Developer",
+  "AI Systems 🧠",
+  "ML Models 📊",
+  "Web Apps 🌐",
+  "Smart Solutions ⚡",
 ];
+let wordIndex = 0,
+  charIndex = 0;
+const typedEl = document.getElementById("typed");
 
-let wordIndex = 0;
-let charIndex = 0;
-
-const typingElement = document.getElementById("typing");
-
-function typeEffect() {
+function type() {
   if (charIndex < words[wordIndex].length) {
-    typingElement.textContent += words[wordIndex].charAt(charIndex);
-
-    charIndex++;
-
-    setTimeout(typeEffect, 100);
+    typedEl.textContent += words[wordIndex][charIndex++];
+    setTimeout(type, 90);
   } else {
-    setTimeout(deleteEffect, 1500);
+    setTimeout(erase, 1600);
   }
 }
 
-function deleteEffect() {
+function erase() {
   if (charIndex > 0) {
-    typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
-
-    charIndex--;
-
-    setTimeout(deleteEffect, 50);
+    typedEl.textContent = words[wordIndex].slice(0, --charIndex);
+    setTimeout(erase, 45);
   } else {
-    wordIndex++;
-
-    if (wordIndex >= words.length) {
-      wordIndex = 0;
-    }
-
-    setTimeout(typeEffect, 300);
+    wordIndex = (wordIndex + 1) % words.length;
+    setTimeout(type, 300);
   }
 }
 
-typeEffect();
+type();
+
+// ===== SCROLL REVEAL FOR PROJECT CARDS =====
+const observer = new IntersectionObserver(
+  (entries) =>
+    entries.forEach((e) => {
+      if (e.isIntersecting) e.target.classList.add("visible");
+    }),
+  { threshold: 0.15 },
+);
+document
+  .querySelectorAll(".project-card")
+  .forEach((card) => observer.observe(card));
+
+// ===== CONTACT FORM =====
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("Message sent! I'll get back to you soon.");
+  this.reset();
+});

@@ -2,185 +2,225 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Tejas Antal | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;700;800&family=Exo+2:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <!-- HEADER / NAVBAR -->
-    <header>
-      <nav class="navbar">
-        <div class="logo">Tejas Antal</div>
+    <nav>
+      <div class="logo">Tejas<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-        <ul class="nav-links">
-          <li>Home</li>
-          <li>About</li>
-          <li>Skills</li>
-          <li>Projects</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- HERO SECTION -->
     <section class="hero">
-      <div class="hero-text">
-        <h1>Tejas Antal</h1>
-        <h3>I am Aspiring <span id="typing"></span></h3>
-        <p>
-          Computer Science Student passionate about AI, Machine Learning and Web
-          Development.
-        </p>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="tag">Available for opportunities</div>
+          <h1>Tejas<br /><em>Antal</em></h1>
+          <p class="typing-line">I build <span id="typed"></span></p>
+          <p>
+            Computer Science student passionate about AI, Machine Learning &
+            modern Web Development.
+          </p>
+          <div class="btns">
+            <button class="btn-primary" onclick="scrollTo('#projects')">
+              View Projects
+            </button>
+            <button class="btn-outline" onclick="scrollTo('#contact')">
+              Get In Touch
+            </button>
 
-        <div class="hero-buttons">
-          <button>View Projects</button>
-          <button>Contact Me</button>
+            <!-- PASTE YOUR GOOGLE DRIVE LINK IN href BELOW -->
+            <a
+              class="btn-cv"
+              href="https://drive.google.com/file/d/10q43Iumj0ftr6l1n2Niq1QUNKOfNpzfg/view?usp=sharing"
+              target="_blank"
+            >
+              ⬇ Download CV
+            </a>
+          </div>
+        </div>
+        <div class="avatar">TA</div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-label">01 — About</div>
+      <h2>Who I <span>Am</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm Tejas Antal, a B.Sc Computer Science student with a deep passion
+            for building intelligent systems and seamless web experiences.
+          </p>
+          <p>
+            I enjoy bridging the gap between cutting-edge AI research and
+            practical applications — from training neural networks to crafting
+            elegant UIs.
+          </p>
+          <p>
+            When I'm not coding, I'm exploring the latest in machine learning
+            research and open-source projects.
+          </p>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <strong>Degree</strong><span>B.Sc Computer Science</span>
+          </div>
+          <div class="fact">
+            <strong>Focus</strong
+            ><span>AI, Machine Learning & Web Development</span>
+          </div>
+          <div class="fact">
+            <strong>Goal</strong
+            ><span>Software Engineer in AI & Web Technologies</span>
+          </div>
+          <div class="fact">
+            <strong>Email</strong><span>tejas1379antal@gmail.com</span>
+          </div>
         </div>
       </div>
-
-      <div class="hero-image">Profile Image Here</div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about">
-      <h2>About Me</h2>
-
-      <div class="about-content">
-        <p>
-          I am Tejas Antal, a B.Sc Computer Science student passionate about
-          building AI systems, machine learning models and modern web
-          applications.
-        </p>
-
-        <p><strong>Education:</strong> B.Sc Computer Science</p>
-
-        <p>
-          <strong>Career Goal:</strong> Become a skilled Software Engineer
-          working in AI and Web Technologies.
-        </p>
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section class="skills">
-      <h2>Skills</h2>
-
-      <div class="skill-group">
-        <div class="skill-category">
+    <section id="skills">
+      <div class="section-label">02 — Skills</div>
+      <h2>What I <span>Know</span></h2>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
           <h3>Programming</h3>
-          <p>C, C++, Python, JavaScript</p>
+          <p>C · C++ · Python · JavaScript</p>
         </div>
-
-        <div class="skill-category">
-          <h3>Web Development</h3>
-          <p>HTML, CSS, React</p>
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h3>Web Dev</h3>
+          <p>HTML · CSS · React · Streamlit</p>
         </div>
-
-        <div class="skill-category">
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
           <h3>AI / ML</h3>
-          <p>Machine Learning, Deep Learning</p>
+          <p>Machine Learning · Deep Learning · CNN · OpenCV</p>
         </div>
-
-        <div class="skill-category">
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
           <h3>Tools</h3>
-          <p>VS Code, Jupyter, Anaconda</p>
+          <p>VS Code · Jupyter · Anaconda · Git</p>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
-    <section class="projects">
-      <h2>Projects</h2>
-
-      <div class="project-container">
+    <section class="projects" id="projects">
+      <div class="section-label">03 — Projects</div>
+      <h2>What I've <span>Built</span></h2>
+      <div class="project-grid">
         <div class="project-card">
-          <h3>AI Powered Digit Recognition System</h3>
+          <h3>AI Digit Recognition System</h3>
           <p>
             Deep learning CNN model that recognizes handwritten digits with high
             accuracy.
           </p>
-          <p><strong>Tech Stack:</strong> Python, CNN, Streamlit</p>
-          <p>GitHub Link</p>
+          <div class="stack">
+            <span>Python</span><span>CNN</span><span>Streamlit</span>
+          </div>
+          <a class="github-link" href="#">→ GitHub</a>
         </div>
-
         <div class="project-card">
-          <h3>Face Recognition Attendance System</h3>
+          <h3>Face Recognition Attendance</h3>
           <p>
             Real-time face recognition system that marks attendance
             automatically.
           </p>
-          <p><strong>Tech Stack:</strong> Python, OpenCV, CNN</p>
-          <p>GitHub Link</p>
+          <div class="stack">
+            <span>Python</span><span>OpenCV</span><span>CNN</span>
+          </div>
+          <a class="github-link" href="#">→ GitHub</a>
         </div>
-
         <div class="project-card">
-          <h3>College Ride Sharing System</h3>
+          <h3>College Ride Sharing App</h3>
           <p>
-            Web application that connects students for ride sharing based on
-            location and time.
+            Web app connecting students for ride sharing based on location and
+            time.
           </p>
-          <p><strong>Tech Stack:</strong> Java, MySQL, Streamlit</p>
-          <p>GitHub Link</p>
+          <div class="stack">
+            <span>Java</span><span>MySQL</span><span>Streamlit</span>
+          </div>
+          <a class="github-link" href="#">→ GitHub</a>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section class="experience">
-      <h2>Experience</h2>
-
-      <div class="experience-card">
-        <h3>Doon University</h3>
-        <p class="duration">June 2025 – July 2025</p>
-        <p><strong>Role:</strong> Web Development Intern</p>
-        <p>
-          <strong>Work:</strong> Built web applications and worked on frontend
-          development.
-        </p>
-      </div>
-      <div class="experience-card">
-        <h3>Doon University</h3>
-        <p class="duration">June 2025 – July 2025</p>
-        <p><strong>Role:</strong> ML Research Intern</p>
-        <p>
-          <strong>Work:</strong> Learned python Machine Learning and
-          collaborated with a team of researchers. 
-          <p>Worked on Machine Learning and python projects</p>
-        </p>
+    <section id="experience">
+      <div class="section-label">04 — Experience</div>
+      <h2>Where I've <span>Worked</span></h2>
+      <div class="exp-timeline">
+        <div class="exp-card">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <h3>Doon University</h3>
+            <div class="role">Web Development Intern</div>
+            <div class="dur">June 2025 – July 2025</div>
+            <p>
+              Built web applications and contributed to frontend development
+              projects.
+            </p>
+          </div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-dot"></div>
+          <div class="exp-content">
+            <h3>Doon University</h3>
+            <div class="role">ML Research Intern</div>
+            <div class="dur">June 2025 – July 2025</div>
+            <p>
+              Developed machine learning models in Python and collaborated with
+              a research team on applied ML projects.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="contact">
-      <h2>Contact Me</h2>
-
-      <div class="contact-container">
-        <form class="contact-form">
-          <input type="text" placeholder="Your Name" />
-
-          <input type="email" placeholder="Your Email" />
-
-          <textarea placeholder="Your Message"></textarea>
-
-          <button type="submit">Send Message</button>
+    <section class="contact" id="contact">
+      <div class="section-label">05 — Contact</div>
+      <h2>Let's <span>Connect</span></h2>
+      <div class="contact-grid">
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message →</button>
         </form>
-
         <div class="contact-info">
-          <p><strong>Emaill:</strong> tejas1379antal@gmail.com</p>
-
-          <p>GitHub Link</p>
-
-          <p>LinkedIn Profile</p>
-
-          <p>Twitter</p>
+          <div class="info-item">
+            <strong>Email</strong><span>tejas1379antal@gmail.com</span>
+          </div>
+          <div class="info-item">
+            <strong>GitHub</strong><span>github.com/tejas-antal</span>
+          </div>
+          <div class="info-item">
+            <strong>LinkedIn</strong><span>linkedin.com/in/tejas-antal</span>
+          </div>
+          <div class="info-item">
+            <strong>Twitter / X</strong><span>@tejas_antal</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-      <p>© 2026 Tejas Antal. All rights reserved.</p>
+      <p>© 2026 Tejas Antal</p>
+      <div class="footer-dot"></div>
+      <p>Built with passion</p>
     </footer>
 
     <script src="script.js"></script>
