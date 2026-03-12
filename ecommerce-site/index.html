@@ -3,10 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce Site</title>
+    <title>ShopBase – Modern Store</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- TOP BAR -->
+    <div class="topbar">
+      Free shipping on orders over $50 &nbsp;|&nbsp; 30-Day Returns
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">ShopBase</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Shop</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <input type="text" id="search" placeholder="Search products…" />
+        <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h2>New Arrivals 2025</h2>
+        <p>Top-quality tech & lifestyle products, delivered fast.</p>
+        <a href="#products" class="btn">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories">
+      <h2>Browse Categories</h2>
+      <div class="cat-grid">
+        <div class="cat-card" onclick="filterProducts('Audio')">🎧 Audio</div>
+        <div class="cat-card" onclick="filterProducts('Peripherals')">
+          ⌨️ Peripherals
+        </div>
+        <div class="cat-card" onclick="filterProducts('Lighting')">
+          💡 Lighting
+        </div>
+        <div class="cat-card" onclick="filterProducts('')">🛍️ All</div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <h2>Our Products</h2>
+      <div id="product-grid"></div>
+    </section>
+
+    <!-- FEATURES BANNER -->
+    <section class="features">
+      <div>🚚 <strong>Fast Delivery</strong><br />2–5 business days</div>
+      <div>🔒 <strong>Secure Payment</strong><br />256-bit SSL encryption</div>
+      <div>↩️ <strong>Easy Returns</strong><br />30-day hassle-free</div>
+      <div>🎧 <strong>24/7 Support</strong><br />Always here to help</div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2>About ShopBase</h2>
+      <p>
+        We curate the best tech and lifestyle products from around the world.
+        Founded in 2020, our mission is to deliver quality and value to every
+        customer.
+      </p>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <h2>Get 10% Off Your First Order</h2>
+      <p>Subscribe to our newsletter for deals and updates.</p>
+      <form onsubmit="subscribeNewsletter(event)">
+        <input
+          type="email"
+          id="email-input"
+          placeholder="Enter your email"
+          required
+        />
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <h3>ShopBase</h3>
+          <p>Quality products, trusted service.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#products">Shop</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#">FAQ</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Returns</a>
+          <a href="#">Track Order</a>
+        </div>
+        <div>
+          <h4>Follow Us</h4>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2025 ShopBase. All rights reserved.</p>
+    </footer>
+
+    <!-- CART MODAL -->
+    <div id="cart-modal" class="hidden overlay">
+      <div class="modal-box">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p class="total">Total: $<span id="cart-total">0.00</span></p>
+        <button class="btn" id="checkout-btn">Checkout</button>
+        <button id="close-cart">✕ Close</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
