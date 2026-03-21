@@ -3,145 +3,290 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ShopBase – Modern Store</title>
+    <title>NEXUS — Premium Tech Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ember+Display:wght@400;700&family=Bookerly:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- TOP BAR -->
-    <div class="topbar">
-      Free shipping on orders over $50 &nbsp;|&nbsp; 30-Day Returns
+    <!-- ANNOUNCEMENT -->
+    <div class="announce">
+      ✦ Free shipping on orders over $50 &nbsp;·&nbsp; Use code
+      <strong>NEXUS10</strong> for 10% off ✦
     </div>
 
     <!-- HEADER -->
-    <header>
-      <div class="logo">ShopBase</div>
+    <header id="header">
+      <a href="#" class="logo">NEXUS</a>
       <nav>
         <a href="#home">Home</a>
         <a href="#products">Shop</a>
+        <a href="#features">Features</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="header-actions">
-        <input type="text" id="search" placeholder="Search products…" />
-        <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+      <div class="header-right">
+        <div class="search-wrap">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search…"
+            autocomplete="off"
+          />
+          <span>⌕</span>
+        </div>
+        <button class="cart-trigger" id="cart-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          <span id="cart-count" class="badge-count">0</span>
+        </button>
+        <button class="hamburger" id="menu-btn">☰</button>
       </div>
     </header>
 
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav hidden" id="mobile-nav">
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#products" onclick="closeMenu()">Shop</a>
+      <a href="#features" onclick="closeMenu()">Features</a>
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+    </div>
+
     <!-- HERO -->
     <section id="home" class="hero">
-      <div class="hero-text">
-        <h2>New Arrivals 2025</h2>
-        <p>Top-quality tech & lifestyle products, delivered fast.</p>
-        <a href="#products" class="btn">Shop Now</a>
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span class="hero-label">New Collection 2025</span>
+        <h1>Next-Level<br /><em>Tech Essentials</em></h1>
+        <p>
+          Curated gear for creators, gamers & professionals.<br />Premium
+          quality. Unbeatable prices.
+        </p>
+        <div class="hero-cta">
+          <a href="#products" class="btn-primary">Explore Collection</a>
+          <a href="#about" class="btn-ghost">Our Story ↗</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div><strong>12K+</strong><span>Happy Customers</span></div>
+        <div><strong>4.9★</strong><span>Average Rating</span></div>
+        <div><strong>200+</strong><span>Products</span></div>
       </div>
     </section>
 
     <!-- CATEGORIES -->
-    <section class="categories">
-      <h2>Browse Categories</h2>
-      <div class="cat-grid">
-        <div class="cat-card" onclick="filterProducts('Audio')">🎧 Audio</div>
-        <div class="cat-card" onclick="filterProducts('Peripherals')">
+    <section class="categories" id="categories">
+      <div class="section-head">
+        <h2>Shop by Category</h2>
+        <p>Find exactly what you're looking for</p>
+      </div>
+      <div class="cat-row">
+        <button class="cat-pill active" onclick="filterCat(this, '')">
+          All
+        </button>
+        <button class="cat-pill" onclick="filterCat(this, 'Audio')">
+          🎧 Audio
+        </button>
+        <button class="cat-pill" onclick="filterCat(this, 'Peripherals')">
           ⌨️ Peripherals
-        </div>
-        <div class="cat-card" onclick="filterProducts('Lighting')">
+        </button>
+        <button class="cat-pill" onclick="filterCat(this, 'Lighting')">
           💡 Lighting
-        </div>
-        <div class="cat-card" onclick="filterProducts('')">🛍️ All</div>
+        </button>
+        <button class="cat-pill" onclick="filterCat(this, 'Displays')">
+          🖥️ Displays
+        </button>
       </div>
     </section>
 
     <!-- PRODUCTS -->
     <section id="products">
-      <h2>Our Products</h2>
+      <div class="section-head">
+        <h2>Featured Products</h2>
+        <p>Handpicked for performance & style</p>
+      </div>
       <div id="product-grid"></div>
     </section>
 
-    <!-- FEATURES BANNER -->
-    <section class="features">
-      <div>🚚 <strong>Fast Delivery</strong><br />2–5 business days</div>
-      <div>🔒 <strong>Secure Payment</strong><br />256-bit SSL encryption</div>
-      <div>↩️ <strong>Easy Returns</strong><br />30-day hassle-free</div>
-      <div>🎧 <strong>24/7 Support</strong><br />Always here to help</div>
+    <!-- FEATURES STRIP -->
+    <section id="features" class="features-strip">
+      <div class="feat">
+        <div class="feat-icon">🚚</div>
+        <strong>Free Shipping</strong><span>On orders over $50</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔒</div>
+        <strong>Secure Checkout</strong><span>256-bit SSL encryption</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">↩️</div>
+        <strong>30-Day Returns</strong><span>No questions asked</span>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🎧</div>
+        <strong>24/7 Support</strong><span>Always here to help</span>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+      <div class="section-head"><h2>What Customers Say</h2></div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p>"Incredible quality. The headphones are the best I've owned."</p>
+          <strong>— Alex R.</strong><span>★★★★★</span>
+        </div>
+        <div class="testi-card">
+          <p>
+            "Fast shipping, amazing packaging. Will definitely order again!"
+          </p>
+          <strong>— Priya M.</strong><span>★★★★★</span>
+        </div>
+        <div class="testi-card">
+          <p>
+            "Customer support resolved my issue in under 10 minutes. Top tier."
+          </p>
+          <strong>— Jordan K.</strong><span>★★★★★</span>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="about">
-      <h2>About ShopBase</h2>
-      <p>
-        We curate the best tech and lifestyle products from around the world.
-        Founded in 2020, our mission is to deliver quality and value to every
-        customer.
-      </p>
+      <div class="about-text">
+        <span class="section-label">Our Story</span>
+        <h2>Built for the Modern Creator</h2>
+        <p>
+          NEXUS was founded in 2020 with one goal: make premium tech accessible.
+          We partner directly with manufacturers to cut out the middleman and
+          deliver quality at honest prices.
+        </p>
+        <p>
+          Every product is hand-tested by our team before it hits the store. We
+          don't sell anything we wouldn't use ourselves.
+        </p>
+        <a href="#products" class="btn-primary">Shop Now</a>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">Since 2020</div>
+        <div class="about-stat">
+          <strong>50,000+</strong><span>Orders Shipped</span>
+        </div>
+        <div class="about-stat">
+          <strong>98%</strong><span>Satisfaction Rate</span>
+        </div>
+      </div>
     </section>
 
     <!-- NEWSLETTER -->
     <section class="newsletter">
       <h2>Get 10% Off Your First Order</h2>
-      <p>Subscribe to our newsletter for deals and updates.</p>
-      <form onsubmit="subscribeNewsletter(event)">
+      <p>Join 12,000+ subscribers. No spam, ever.</p>
+      <form onsubmit="subscribe(event)">
         <input
           type="email"
-          id="email-input"
-          placeholder="Enter your email"
+          id="nl-email"
+          placeholder="Enter your email address"
           required
         />
-        <button type="submit" class="btn">Subscribe</button>
+        <button type="submit" class="btn-primary">Subscribe</button>
       </form>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="contact">
-      <h2>Contact Us</h2>
-      <form onsubmit="submitContact(event)">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
+      <div class="section-head">
+        <h2>Get in Touch</h2>
+        <p>We'd love to hear from you</p>
+      </div>
+      <form class="contact-form" onsubmit="sendMsg(event)">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+        </div>
+        <input type="text" placeholder="Subject" required />
+        <textarea rows="5" placeholder="Your message…" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
       </form>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <div class="footer-grid">
-        <div>
-          <h3>ShopBase</h3>
-          <p>Quality products, trusted service.</p>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>NEXUS</h3>
+          <p>Premium tech for creators, gamers & professionals.</p>
+          <div class="socials">
+            <a href="#">𝕏</a><a href="#">in</a><a href="#">▶</a
+            ><a href="#">◎</a>
+          </div>
         </div>
-        <div>
-          <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#products">Shop</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div>
-          <h4>Support</h4>
-          <a href="#">FAQ</a>
-          <a href="#">Shipping Policy</a>
-          <a href="#">Returns</a>
-          <a href="#">Track Order</a>
-        </div>
-        <div>
-          <h4>Follow Us</h4>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
-          <a href="#">Facebook</a>
+        <div class="footer-links">
+          <div>
+            <h4>Shop</h4>
+            <a href="#">Audio</a><a href="#">Peripherals</a
+            ><a href="#">Lighting</a><a href="#">Displays</a>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <a href="#">FAQ</a><a href="#">Shipping</a><a href="#">Returns</a
+            ><a href="#">Track Order</a>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="#">About</a><a href="#">Careers</a><a href="#">Press</a
+            ><a href="#">Contact</a>
+          </div>
         </div>
       </div>
-      <p class="footer-bottom">&copy; 2025 ShopBase. All rights reserved.</p>
+      <div class="footer-bottom">
+        <span>© 2025 NEXUS. All rights reserved.</span>
+        <span
+          ><a href="#">Privacy Policy</a> ·
+          <a href="#">Terms of Service</a></span
+        >
+      </div>
     </footer>
 
-    <!-- CART MODAL -->
-    <div id="cart-modal" class="hidden overlay">
-      <div class="modal-box">
-        <h2>Your Cart</h2>
+    <!-- CART DRAWER -->
+    <div
+      id="cart-overlay"
+      class="drawer-overlay hidden"
+      onclick="closeCart(event)"
+    >
+      <div class="cart-drawer">
+        <div class="drawer-head">
+          <h3>Your Cart (<span id="drawer-count">0</span>)</h3>
+          <button id="close-cart" onclick="toggleCart()">✕</button>
+        </div>
         <ul id="cart-items"></ul>
-        <p class="total">Total: $<span id="cart-total">0.00</span></p>
-        <button class="btn" id="checkout-btn">Checkout</button>
-        <button id="close-cart">✕ Close</button>
+        <div class="drawer-footer">
+          <div class="drawer-total">
+            Total: <strong>$<span id="cart-total">0.00</span></strong>
+          </div>
+          <button class="btn-primary full" id="checkout-btn">
+            Proceed to Checkout →
+          </button>
+          <button class="btn-ghost full" onclick="toggleCart()">
+            Continue Shopping
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast hidden"></div>
 
     <script src="script.js"></script>
   </body>
